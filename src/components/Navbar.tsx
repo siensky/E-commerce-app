@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
 
 function Navbar() {
+  const [cart, setCart] = useContext(CartContext);
   return (
     <nav className=" flex justify-between text-[#FFFFFF] items-center bg-[#3b82f6] p-[1.5rem]">
       <h2 className="text-2xl">BestTech</h2>
@@ -20,7 +23,7 @@ function Navbar() {
         </li>
         <li>
           <Link className="text-[#FFFFFF] [text-decoration:none]" to="/cart">
-            Cart (0)
+            Cart ({cart.length})
           </Link>
         </li>
       </ul>
